@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-
-<!doctype html>
-<html>
-    <body>
-        <form method="POST">
-                longitude: <input name="longitude" input type="number">
-                <br>
-                latitude: <input name="latitude" input type="number">
-                <br>
-                date: <input name="date" input type = "date">
-                <br>
-                time: <input name="time" input type = "time">
-                <br>
-                <output>
-            <input type="submit">
-            <div><p>{{res}}</b></p></div>
-        </form>
-    </body>
-</html>
-=======
 <!doctype html>
 
 {% extends "base.html" %}
@@ -26,23 +5,19 @@
 {% block content %}
     <h1 class = "heading">Predict the Earthquake!</h1>
 
-{% for post in posts %}
-    <div class = "text">
-        <p>{{post.author.nickname}} says: <b>{{post.body}}</b></p>
-    </div>
-{% endfor %}
-
-<div class="text">
-    <p>Add New User Below, for example, just type 3, then click the botton too add user 3</p>
-</div>
-
-<div class="text">
-    <form action="" method="POST">
-        <p><input type="text" name="user number" placeholder="0"></p>
-        <button type="submit">Click Me to Add New User</button>
-    </form>
-</div>
-
+<form method="POST">
+        longitude: <input name="longitude" input type="number">
+        <br>
+        latitude: <input name="latitude" input type="number">
+        <br>
+        date: <input name="date" input type = "date">
+        <br>
+        time: <input name="time" input type = "time">
+        <br>
+        <output>
+    <input type="submit">
+    <div><p>{{res}}</b></p></div>
+</form>
 
 {% endblock %}
->>>>>>> 7893346add113309bf5cc4ffa516d9826c122182
+
