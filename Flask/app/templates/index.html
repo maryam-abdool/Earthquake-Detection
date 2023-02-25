@@ -3,21 +3,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class = "heading">Predict the Earthquake!</h1>
-
-<form method="POST">
-        longitude: <input name="longitude" input type="number">
+    <br>
+    <div class="heading_container">
+        <h1 class = "heading" >Predict the Earthquake!</h1>
         <br>
-        latitude: <input name="latitude" input type="number">
-        <br>
-        date: <input name="date" input type = "date">
-        <br>
-        time: <input name="time" input type = "time">
-        <br>
+    </div>
+    <div class = "form_container">
+        <form method="POST">
+            <label for="longtitude">longitude: </label>
+            <input name="longitude" input type="number">
+        </form>
+        <form method="POST">
+            <label for="latitude">latitude: </label>
+            <input name="latitude" input type="number">
+        </form>
+        <form method="POST">
+            <label for="date">date: </label>
+            <input name="date" input type = "date">
+        </form>
+        <form method="POST">
+            <label for="time"> time: </label>
+            <input name="time" input type = "time">
+        </form>
         <output>
-    <input type="submit">
-    <div><p>{{res}}</b></p></div>
-</form>
+        <br>
+        <input type="submit" id = "btn">
+        <div><p>{{res}}</b></p></div>
+    </div>
+    
 
 {% endblock %}
 
