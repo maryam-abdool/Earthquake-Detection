@@ -1,5 +1,6 @@
 import pandas as pd
 from flaml import AutoML
+from flaml.ml import sklearn_metric_loss_score
 import dabl
 import pickle
 from sklearn.model_selection import train_test_split
@@ -34,6 +35,9 @@ settings = {
 }
 
 autoML.fit(X_train=X_train, y_train=y_train, **settings)
-autoML.score(X_test, y_test)
+y_pred = autoML.predict(X_test)
+print('r2', '=', 1 - sklearn_metric_loss_score('r2', y_pred, y_test))
+print('mse', '=', sklearn_metric_loss_score('mse', y_pred, y_test))
+print('mae', '=', sklearn_metric_loss_score('mae', y_pred, y_test))
 
 pickle.dump(autoML, open("model.pkl", "wb"), pickle.HIGHEST_PROTOCOL)
