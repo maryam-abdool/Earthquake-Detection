@@ -1,6 +1,7 @@
 from app import app 
 from flask import render_template
 from flask import request 
+import time as timelibrary
 
 values = set()
 
@@ -18,5 +19,9 @@ def my_form_post():
     values.add(latitude)
     values.add(date)
     values.add(time)
+    timestamp = date + " " + time
+    timestamp = timelibrary.mktime(timelibrary.strptime(timestamp, '%Y-%m-%d %H:%M'))
+    values.add(timestamp)
+
     #print(values)
     return render_template('index.html', res = values)
