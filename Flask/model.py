@@ -1,9 +1,28 @@
 import pandas as pd
-import pickle
 from flaml import AutoML
+import dabl
+import pickle
+from sklearn.model_selection import train_test_split
 
-dataset = pd.read_csv("earthquake.csv")
-X, y = dataset.iloc[:, :-1], dataset.iloc[:, -1]
+import time as tl
+
+def timeStrToTimestamp(s):
+    date, time = s.split("T")[0], ":".join(s.split("T")[1].split(":")[:-1])
+    timestamp = date + " " + time
+    timestamp = tl.mktime(tl.strptime(timestamp, '%Y-%m-%d %H:%M'))
+    return timestamp
+
+dataset = pd.read_pickle("earthquake.pkl")
+dataset = dabl.clean(dataset)
+dataset = dataset.dropna()
+
+X = dataset[["time", "latitude", "longitude"]]
+X["time"] = X["time"].map(timeStrToTimestamp)
+y = dataset["mag"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+autoML = AutoML()
 
 settings = {
     "time_budget": 240,  # total running time in seconds
@@ -14,8 +33,7 @@ settings = {
     "seed": 7654321,    # random seed
 }
 
-autoML = AutoML()
-
-autoML.fit(X_train=X, y_train=y, **settings)
+autoML.fit(X_train=X_train, y_train=y_train, **settings)
+autoML.score(X_test, y_test)
 
 pickle.dump(autoML, open("model.pkl", "wb"), pickle.HIGHEST_PROTOCOL)
