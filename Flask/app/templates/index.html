@@ -1,17 +1,26 @@
 <!doctype html>
+
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Hi, {{user.nickname}}!</h1>
+    <h1 class = "heading">Predict the Earthquake!</h1>
+
 {% for post in posts %}
-<div><p>{{post.author.nickname}} says: <b>{{post.body}}</b></p></div>
+    <div class = "text">
+        <p>{{post.author.nickname}} says: <b>{{post.body}}</b></p>
+    </div>
 {% endfor %}
 
-<div><p>Add New User Below, for example, just type 3, then click the botton too add user 3</p></div>
+<div class="text">
+    <p>Add New User Below, for example, just type 3, then click the botton too add user 3</p>
+</div>
 
-<form action="" method="POST">
-    <p><input type="text" name="user number" placeholder="0"></p>
-    <button type="submit">Click Me to Add New User</button>
-</form>
+<div class="text">
+    <form action="" method="POST">
+        <p><input type="text" name="user number" placeholder="0"></p>
+        <button type="submit">Click Me to Add New User</button>
+    </form>
+</div>
+
 
 {% endblock %}
