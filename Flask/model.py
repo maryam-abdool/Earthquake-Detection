@@ -10,7 +10,7 @@ settings = {
     "metric": 'r2',  # primary metrics for regression can be chosen from: ['mae','mse','r2','rmse','mape']
     "estimator_list": ['lgbm'],  # list of ML learners; we tune lightgbm in this example
     "task": 'regression',  # task type    
-    "log_file_name": 'houses_experiment.log',  # flaml log file
+    "log_file_name": 'earthquake_experiment.log',  # flaml log file
     "seed": 7654321,    # random seed
 }
 
