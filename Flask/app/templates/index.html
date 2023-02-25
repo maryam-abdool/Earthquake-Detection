@@ -3,24 +3,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class = "heading">Predict the Earthquake!</h1>
-
-{% for post in posts %}
-    <div class = "text">
-        <p>{{post.author.nickname}} says: <b>{{post.body}}</b></p>
+    <br>
+    <div class="heading_container">
+        <h1 class = "heading" >Predict the Earthquake!</h1>
+        <br>
     </div>
-{% endfor %}
-
-<div class="text">
-    <p>Add New User Below, for example, just type 3, then click the botton too add user 3</p>
-</div>
-
-<div class="text">
-    <form action="" method="POST">
-        <p><input type="text" name="user number" placeholder="0"></p>
-        <button type="submit">Click Me to Add New User</button>
-    </form>
-</div>
-
+    <div class = "form_container">
+        <form method="POST">
+            <label for="longtitude">longitude: </label>
+            <input name="longitude" input type="number">
+        </form>
+        <form method="POST">
+            <label for="latitude">latitude: </label>
+            <input name="latitude" input type="number">
+        </form>
+        <form method="POST">
+            <label for="date">date: </label>
+            <input name="date" input type = "date">
+        </form>
+        <form method="POST">
+            <label for="time"> time: </label>
+            <input name="time" input type = "time">
+        </form>
+        <output>
+        <br>
+        <input type="submit" id = "btn">
+        <div><p>{{res}}</b></p></div>
+    </div>
+    
 
 {% endblock %}
+
