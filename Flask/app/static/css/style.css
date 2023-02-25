@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+  height: 100px;
+  display: flex;
+  font-size: 1.2rem;
+  z-index: 999;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 50px;
+}
+
+.heading{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+  top: 300px;
+  display: flex;
+}
+
+.text {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+
+
+
+
+
+
