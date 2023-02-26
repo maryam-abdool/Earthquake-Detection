@@ -33,6 +33,11 @@ def my_form_post():
     return redirect(url_for('vis_result', pred=str(res)))
 
 
-@app.route("/result/?<string:pred>", methods=["GET", "POST"])
+@app.route("/result/?<string:pred>", methods=["GET"])
 def vis_result(pred):
     return render_template('result.html', res = pred)
+
+@app.route("/result/?<string:pred>", methods=["POST"])
+def get_back(pred):
+    print("get back")
+    return redirect(url_for('my_form'))
