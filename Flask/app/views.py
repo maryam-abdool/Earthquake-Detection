@@ -1,11 +1,14 @@
 from app import app 
 from flask import render_template
-from flask import request 
+from flask import request, url_for, redirect
 import time as timelibrary
 from datetime import datetime
 
 from app import model, gmaps
 import geocoder
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import os
 
 
 def getCurLocation():
@@ -46,4 +49,18 @@ def my_form_post():
 
     output = [address_detailed, address_detailed2, str(prediction)]
 
-    return render_template('index.html', res = output)
+    map = Basemap(projection='lcc', 
+                resolution=None,
+                width=16E6, height=9E6, 
+                lat_0=latitude, lon_0=longitude,)
+    map.etopo(scale=1, alpha=1)
+    x, y = map(longitude, latitude)
+    plt.plot(x, y, 'ok', markersize=5)
+    plt.text(x, y, " " + city, fontsize=12)
+    plt.savefig("app/static/img/local_map.png", transparent=True)
+    return redirect(url_for("show", output="&&".join(output))) 
+
+@app.route("/result/?<string:output>", methods=["GET", "POST"])
+def show(output):
+    output = output.split("&&")
+    return render_template("result.html", res = output)

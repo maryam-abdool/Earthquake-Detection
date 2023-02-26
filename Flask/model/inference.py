@@ -1,10 +1,16 @@
 import numpy as np
-import pickle5 as pickle
+try:
+    import pickle5
+except:
+    import pickle
 
 
 class Model:
     def __init__(self, path="model.pkl"):
-        self.model = pickle.load(open(path, "rb")).model.estimator
+        try:
+            self.model = pickle5.load(open(path, "rb")).model.estimator
+        except:
+            self.model = pickle.load(open(path, "rb")).model.estimator
 
 
     def predict(self, inputs):

@@ -3,3 +3,4 @@ geocoder
 googlemaps
 flaml
 dabl
+basemap

@@ -1,0 +1,23 @@
+<!doctype html>
+
+{% extends "base.html" %}
+
+{% block content %}
+    <br>
+    <div class="heading_container">
+        <h1 class = "heading" >Predict the Earthquake!</h1>
+        <br>
+    </div>
+    <div class = "form_container" >
+        <br>
+        <div><p>
+            {% for title in res %} 
+            {{ title }}<br>
+            {% endfor %}
+        </b></p></div>
+        <div>
+            <img src="\static\img\local_map.png" alt="google map">
+        </div>
+    </div>
+    
+{% endblock %}
