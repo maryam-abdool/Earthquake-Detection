@@ -6,7 +6,7 @@
 }
 
 body {
-  background-image: url(/static/img/background.jpg);
+  background-image: url("../img/background.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -24,7 +24,7 @@ body {
 }
 
 .form_container {
-  background-image: url(/static/img/notebook.png);
+  background-image: url(../img/notebook.png);
   background-size: cover;
   background-position: top;
   background-position-y: -75px;
