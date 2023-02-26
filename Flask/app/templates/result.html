@@ -5,41 +5,21 @@
 {% block content %}
 {% if res < 2 %}
 <body background = "/static/img/goodbackground.GIF">
-    <br>
-    <div class="heading_container">
-        <h1 class = "heading" >Predict the Earthquake!</h1>
-        <br>
-    </div>
-    <div class = "form_container" >
-        <br>
         <form method="POST">
         <output>
-        <br>
-        <br>
-            <button class="btn" type="submit"> return to home </button>
+            <button class="btn" type="submit"> Predict Another! </button>
             <div><p>{{res}}</b></p></div>
         </form>
-    </div>
 </body>
 
 {% else %}
 
 <body background = "/static/img/sadbackground.GIF">
-    <br>
-    <div class="heading_container">
-        <h1 class = "heading" >Predict the Earthquake!</h1>
-        <br>
-    </div>
-    <div class = "form_container" >
-        <br>
         <form method="POST">
         <output>
-        <br>
-        <br>
-            <button class="btn" type="submit"> return to home </button>
+            <button class="btn" type="submit"> Predict Another! </button>
             <div><p>{{res}}</b></p></div>
         </form>
-    </div>
 </body>
 
 {% endif %}
