@@ -8,7 +8,6 @@ from app import model, gmaps
 import geocoder
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
-import os
 
 class ERROR_CODES:
     SUCCESS = 0
@@ -67,6 +66,10 @@ def my_form_post():
     timestamp = date + " " + time
     timestamp = timelibrary.mktime(timelibrary.strptime(timestamp, '%Y-%m-%d %H:%M'))
     prediction = model.predict((timestamp, latitude, longitude))
+    if prediction < 2:
+        prediction = "You are safe!\n"
+    else:
+        prediction = "Run..."
 
     output = [address_detailed, address_detailed2, str(prediction)]
 
@@ -76,6 +79,7 @@ def my_form_post():
                 lat_0=latitude, lon_0=longitude,)
     map.etopo(scale=1, alpha=1)
     x, y = map(longitude, latitude)
+    plt.axis('off')
     plt.plot(x, y, 'ok', markersize=5)
     plt.text(x, y, " " + city, fontsize=12)
     plt.savefig("app/static/img/local_map.png", transparent=True)
