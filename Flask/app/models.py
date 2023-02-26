@@ -1,5 +1,6 @@
 import numpy as np
 from pickle5 import load
+import pickle5 as pickle
 
 
 class Model:
