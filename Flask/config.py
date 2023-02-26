@@ -1,3 +1,3 @@
 CSRF_ENABLED = True
 SECRET_KEY = 'you-will-never-guess'
-GOOGLEMAP_KEY = ''
+GOOGLEMAP_KEY = 'AIzaSyCL-7rNoLM-cOl2fR1BJDD8qw-QY3XXCFg'
