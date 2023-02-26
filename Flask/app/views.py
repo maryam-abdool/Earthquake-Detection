@@ -10,6 +10,12 @@ from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import os
 
+class ERROR_CODES:
+    SUCCESS = 0
+    INVALID_LONGITUDE = -1 
+    INVALID_LATITUDE = -2
+    INVALID_DATETIME = -3
+
 
 def getCurLocation():
     return geocoder.ip("me").latlng
@@ -18,6 +24,19 @@ def reverse_address(latitude, longitude):
     address = gmaps.reverse_geocode((latitude, longitude))
     return address
 
+def checkForm(form: dict):
+    try:
+        if (float(form["longitude"]) > 180 or float(form["longitude"]) <= -180):
+            raise "INVALID_LONGITUDE"
+    except:
+        return ERROR_CODES.INVALID_LONGITUDE
+    
+    try:
+        if (float(form["latitude"]) > 90 or float(form["latitude"]) <= -90):
+            return ERROR_CODES.INVALID_LATITUDE
+    except:
+        return ERROR_CODES.INVALID_LATITUDE
+    return ERROR_CODES.SUCCESS
 
 @app.route('/')
 def my_form():
@@ -28,6 +47,8 @@ def my_form():
 def my_form_post():
     longitude = request.form['longitude'] if request.form["longitude"] else str(getCurLocation()[1])
     latitude = request.form['latitude'] if request.form["latitude"] else str(getCurLocation()[0])
+
+    code = checkForm(request.form)
     
     address = reverse_address(latitude, longitude)[0]["address_components"]
     street_number = str(address[0]["long_name"])
