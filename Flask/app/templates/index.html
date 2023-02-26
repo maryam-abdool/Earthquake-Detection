@@ -23,7 +23,11 @@
         <br>
         <br>
             <input type="submit" id = "btn" >
-            <div><p>{{res}}</b></p></div>
+            <div><p>
+                {% for title in res %} 
+                {{ title }}<br>
+                {% endfor %}
+            </b></p></div>
         </form>
         
     </div>

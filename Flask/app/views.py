@@ -44,6 +44,6 @@ def my_form_post():
     timestamp = timelibrary.mktime(timelibrary.strptime(timestamp, '%Y-%m-%d %H:%M'))
     prediction = model.predict((timestamp, latitude, longitude))
 
-    output = "\r\n ".join((address_detailed, address_detailed2, str(prediction)))
+    output = [address_detailed, address_detailed2, str(prediction)]
 
     return render_template('index.html', res = output)
