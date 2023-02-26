@@ -28,4 +28,4 @@ All code for the website is in the Flask directory. The other directory contains
 Pun intended ;)
 
 ## UI
-All parts of our beautiful UI are drawn by our awesome designer! See the screenshots below. 
+All parts of our UI are drawn by our awesome designer! See the screenshots below. 
