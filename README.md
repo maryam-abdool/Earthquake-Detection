@@ -42,5 +42,5 @@ Wanna see if the tectonic plates are doing alright? TECHtonic tracer has got you
 
 ## UI
 All parts of our UI are designed and handdrawn by our awesome front end developer Emily! See the design plan and assets in figma below. 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FJXUG6ofcTSLNL0lntgDYIy%2FTECHtonic-Tracer%3Fnode-id%3D0%253A1%26t%3DnGGNT2caVl54QFxZ-1" allowfullscreen></iframe>
+![figma image](Archive/figma.png)
 
