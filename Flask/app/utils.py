@@ -22,7 +22,6 @@ def checkForm(form: dict):
         return ERROR_CODES.INVALID_LONGITUDE
     
     try:
-        
         if (float(form["latitude"]) > 90 or float(form["latitude"]) <= -90):
             return ERROR_CODES.INVALID_LATITUDE
     except:
@@ -30,15 +29,16 @@ def checkForm(form: dict):
     
     try:
         timestr = form['date'] + " " + form['time']
-        print(timestr)
         timestamp = strToTimestamp(timestr)
     except:
         return ERROR_CODES.INVALID_DATETIME 
     return ERROR_CODES.SUCCESS
 
 def fillFormByDefault(form: dict):
-    if not form.get("longitude", "") or not form.get("latitude", ""):
-        form.update(getCurrentIPLatLng())
+    if not form.get("longitude", ""):
+        form["longitude"] = getCurrentIPLatLng()["longitude"]
+    if not form.get("latitude", ""):
+        form["latitude"] = getCurrentIPLatLng()["latitude"]
         
     curr_datetime = getCurrentDatetime()
 
