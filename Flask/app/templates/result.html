@@ -1,24 +1,47 @@
 <!doctype html>
+<html lang="en">
 
 {% extends "base.html" %}
 
 {% block content %}
-{% if res < 2 %}
-<body background = "/static/img/goodbackground.GIF">
+
+<!-- <script>
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+</script> -->
+
+{% if res[2]|int < 2 %}
+<body class = "background" background ="/static/img/goodbackground.GIF">
         <form method="POST">
         <output>
-            <button class="btn" type="submit"> Predict Another! </button>
-            <div><p>{{res}}</b></p></div>
+            <div class = "map"><p>
+                {% for title in res %} 
+                {{ title }}<br>
+                {% endfor %}
+            </b></p></div>
+            <div class = "map">
+                <img src="\static\img\local_map.png" alt="google map">
+            </div>
+            <button class="map" type="submit"> Predict Another! </button>
         </form>
 </body>
 
 {% else %}
 
-<body background = "/static/img/sadbackground.GIF">
+<body class = "background" background = "/static/img/sadbackground.GIF">
         <form method="POST">
         <output>
-            <button class="btn" type="submit"> Predict Another! </button>
-            <div><p>{{res}}</b></p></div>
+            <div class = "map"><p>
+                {% for title in res %} 
+                {{ title }}<br>
+                {% endfor %}
+            </b></p></div>
+            <div class = "map">
+                <img src="\static\img\local_map.png" alt="google map">
+            </div>
+            <button class="map" type="submit"> Predict Another! </button>
         </form>
 </body>
 
