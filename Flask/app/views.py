@@ -29,13 +29,15 @@ def my_form_post():
         timestr = form['date'] + " " + form['time']
         timestamp = strToTimestamp(timestr)
         res = {"Prediction": model.predict((timestamp, latitude, longitude))}
-    # return render_template('index.html', res = res)
-    return redirect(url_for('vis_result', pred=str(res)))
+    if res.get("ERROR", None) is None:
+        return redirect(url_for('vis_result', pred=str(res)))
+    return render_template('index.html', res = res) 
 
 
 @app.route("/result/?<string:pred>", methods=["GET"])
 def vis_result(pred):
-    return render_template('result.html', res = pred)
+    pred = eval(pred)
+    return render_template('result.html', res = pred.get("prediction", -9999.9))
 
 @app.route("/result/?<string:pred>", methods=["POST"])
 def get_back(pred):
