@@ -1,5 +1,5 @@
 from app import app 
-from flask import render_template
+from flask import render_template, redirect, url_for
 from flask import request 
 from app.utils import strToTimestamp, ERROR_CODES, checkForm, getCurrentIPLatLng, getCurrentDatetime, fillFormByDefault
 
@@ -29,4 +29,10 @@ def my_form_post():
         timestr = form['date'] + " " + form['time']
         timestamp = strToTimestamp(timestr)
         res = {"Prediction": model.predict((timestamp, latitude, longitude))}
-    return render_template('index.html', res = res)
+    # return render_template('index.html', res = res)
+    return redirect(url_for('vis_result', pred=str(res)))
+
+
+@app.route("/result/?<string:pred>", methods=["GET", "POST"])
+def vis_result(pred):
+    return render_template('result.html', res = pred)
