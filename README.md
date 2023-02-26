@@ -22,8 +22,8 @@ Due to time constraints, we downsampled the total dataset to 100,000 examples. U
 ## Running 
 Make sure to pip install geocoder, pickle5, and flaml. M1 users might also need to brew install cmake libomp. Run python3 run.py in the Flask directory to run the code for the website. 
 
-##Fun Facts:
+## Fun Facts:
 pun intended ;)
 
-##UI
+## UI
 All parts of our beautiful UI are drawn by our awesome designer! See the screenshots below. 
