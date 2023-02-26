@@ -19,11 +19,13 @@ The user will provide the date, time, and location of the earthquake they wish t
 ## Extensions
 Due to time constraints, we downsampled the total dataset to 100,000 examples. Using a larger dataset to improve accuracy is one future extension. We also think using more features relevant to earthquakes would improve accuracy. 
 
-## Running 
+## Running and Navigating the Project
 Make sure to pip install geocoder, pickle5, and flaml. M1 users might also need to brew install cmake libomp. Run python3 run.py in the Flask directory to run the code for the website. 
 
+All code for the website is in the Flask directory. The other directory contains files used for training and testing the model as well as the script for data augmentation.  
+
 ## Fun Facts:
-pun intended ;)
+Pun intended ;)
 
 ## UI
 All parts of our beautiful UI are drawn by our awesome designer! See the screenshots below. 
