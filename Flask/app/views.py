@@ -3,7 +3,8 @@ from flask import render_template
 from flask import request 
 import time as timelibrary
 
-values = set()
+from model import inference
+
 
 @app.route('/')
 def my_form():
@@ -15,13 +16,11 @@ def my_form_post():
     latitude = request.form['latitude']
     date = request.form['date']
     time = request.form['time']
-    values.add(longitude)
-    values.add(latitude)
-    values.add(date)
-    values.add(time)
     timestamp = date + " " + time
     timestamp = timelibrary.mktime(timelibrary.strptime(timestamp, '%Y-%m-%d %H:%M'))
-    values.add(timestamp)
+    
+    prediction = inference.predict((timestamp, latitude, longitude))
+    print(prediction)
 
     #print(values)
-    return render_template('index.html', res = values)
+    return render_template('index.html', res = prediction)
