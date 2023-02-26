@@ -2,6 +2,18 @@ from app import app
 from flask import render_template
 from flask import request 
 import time as timelibrary
+from datetime import datetime
+
+from app import model, gmaps
+import geocoder
+
+
+def getCurLocation():
+    return geocoder.ip("me").latlng
+
+def reverse_address(latitude, longitude):
+    address = gmaps.reverse_geocode((latitude, longitude))
+    return address
 
 
 @app.route('/')
