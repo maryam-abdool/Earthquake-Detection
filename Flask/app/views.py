@@ -9,6 +9,8 @@ import geocoder
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 
+import os
+
 class ERROR_CODES:
     SUCCESS = 0
     INVALID_LONGITUDE = -1 
@@ -48,17 +50,21 @@ def my_form_post():
     latitude = request.form['latitude'] if request.form["latitude"] else str(getCurLocation()[0])
 
     code = checkForm(request.form)
-    
-    address = reverse_address(latitude, longitude)[0]["address_components"]
-    street_number = str(address[0]["long_name"])
-    street_name = str(address[1]["long_name"])
-    street_info = " ".join((street_number, street_name))
-    district = str(address[2]["long_name"])
-    city = str(address[3]["long_name"])
-    large_city = str(address[4]["long_name"])
 
-    address_detailed = ", ".join((street_info, district))
-    address_detailed2 = ", ".join((city, large_city))
+    try:
+        address = reverse_address(float(latitude), float(longitude))[0]["address_components"]
+        street_number = str(address[0]["long_name"])
+        street_name = str(address[1]["long_name"])
+        street_info = " ".join((street_number, street_name))
+        district = str(address[2]["long_name"])
+        city = str(address[3]["long_name"])
+        large_city = str(address[4]["long_name"])
+
+        address_detailed = ", ".join((street_info, district))
+        address_detailed2 = ", ".join((city, large_city))
+    except:
+        address_detailed = "Not on land"
+        address_detailed2 = ""
 
     cur_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     date = request.form['date'] if request.form["date"] else cur_time.split(" ")[0]
@@ -82,6 +88,8 @@ def my_form_post():
     plt.axis('off')
     plt.plot(x, y, 'ok', markersize=5)
     plt.text(x, y, " " + city, fontsize=12)
+    if os.path.isfile("app/static/img/local_map.png"):
+        os.remove("app/static/img/local_map.png")   # Opt.: os.system("rm "+strFile)
     plt.savefig("app/static/img/local_map.png", transparent=True)
     return redirect(url_for("show", output="&&".join(output))) 
 
