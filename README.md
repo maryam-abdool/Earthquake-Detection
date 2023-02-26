@@ -2,6 +2,19 @@
 ## Overview
 TECHTonic Tracer is a website that leverages machine learning to predict earthquakes before they occur.
 
+## Quick Start
+You will firstly need to install the dependencies with
+
+`pip install -r requirements.txt`
+
+After that, you will need to generate a google map api token on Google Cloud and store it in configure file.
+
+Ultimately, run the program on port 5000 with
+
+`python run.py`
+
+And you are all set!
+
 ## Significance
 Currently, seismologists do not have a dependable tool to predict major earthquakes as they continue to have major, disastrous impacts worldwide. 
 
