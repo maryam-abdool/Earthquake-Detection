@@ -4,7 +4,7 @@ import pickle5 as pickle
 
 class Model:
     def __init__(self, path="model.pkl"):
-        self.model = pickle.load(open(path, "rb"))
+        self.model = pickle.load(open(path, "rb")).model.estimator
 
 
     def predict(self, inputs):
