@@ -37,7 +37,7 @@ def my_form_post():
 @app.route("/result/?<string:pred>", methods=["GET"])
 def vis_result(pred):
     pred = eval(pred)
-    return render_template('result.html', res = pred.get("prediction", -9999.9))
+    return render_template('result.html', res = pred.get("Prediction", -9999.9))
 
 @app.route("/result/?<string:pred>", methods=["POST"])
 def get_back(pred):
