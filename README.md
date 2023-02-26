@@ -5,7 +5,7 @@ TECHTonic Tracer is an earthquake predictor (website) that uses machine learning
 ## Significance
 Currently, seismologists do not have a dependable tool to predict major earthquakes as they continue to have major, disastrous impacts worldwide. 
 
-Although there have been attempts to use classic neural networks as a way to address this issue, they fail to consider examples of when earthquakes do not happen in their supervised training. If modeled as a classification problem, the model then runs with a multi-class classifier on positive examples only, resulting in inaccurate results.
+Although there have been attempts to use classic neural networks as a way to address this issue, they fail to consider examples of when earthquakes do not happen during supervised training. If modeled as a classification problem, the model then runs with a multi-class classifier on positive examples only, resulting in inaccurate results.
 
 To mitigate this issue, we model our problem as a regression task with the earthquake’s magnitude being the output and use data augmentation to generate and represent data for when the earthquakes are insignificant or do not occur at all. We set a range of -100 to -10 for those magnitudes.
 
