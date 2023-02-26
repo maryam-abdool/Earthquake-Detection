@@ -13,6 +13,7 @@ def my_form():
 @app.route("/", methods=["GET", "POST"])
 def my_form_post():
     form = dict(request.form) 
+    print(form)
     fillFormByDefault(form)
     error_code = checkForm(form)
     res = {}

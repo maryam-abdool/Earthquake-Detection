@@ -11,7 +11,7 @@ class ERROR_CODES:
     INVALID_DATETIME = -3
 
 def strToTimestamp(s):
-    timestamp = mktime(strptime(s, '%Y-%m-%d %H:%M:%S'))
+    timestamp = mktime(strptime(s, '%Y-%m-%d %H:%M'))
     return timestamp
 
 def checkForm(form: dict):
@@ -54,7 +54,7 @@ def getCurrentIPLatLng():
     return {"latitude": g.latlng[0], "longitude": g.latlng[1]}
 
 def getCurrentDatetime():
-    return str(datetime.now())[: 19]
+    return str(datetime.now())[: 16]
     
     
 if __name__ == "__main__":
