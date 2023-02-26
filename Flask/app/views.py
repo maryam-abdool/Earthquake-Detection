@@ -81,7 +81,13 @@ def my_form_post():
     plt.savefig("app/static/img/local_map.png", transparent=True)
     return redirect(url_for("show", output="&&".join(output))) 
 
-@app.route("/result/?<string:output>", methods=["GET", "POST"])
+@app.route("/result/?<string:output>", methods=["GET"])
 def show(output):
     output = output.split("&&")
     return render_template("result.html", res = output)
+
+
+@app.route("/result/?<string:output>", methods=["POST"])
+def get_back(output):
+    print("get back")
+    return redirect(url_for('my_form'))

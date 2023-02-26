@@ -3,20 +3,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <br>
-    <div class="heading_container">
-        <h1 class = "heading" >Predict the Earthquake!</h1>
-        <br>
-    </div>
-    <div class = "form_container" >
-        <br>
-        <div><p>
-            {% for title in res %} 
-            {{ title }}<br>
-            {% endfor %}
-        </b></p></div>
-        <div>
-            <img src="\static\img\local_map.png" alt="google map">
-        </div>
+
+{% if res[2] < 2 %}
+<body background = "/static/img/goodbackground.GIF">
+        <form method="POST">
+        <output>
+            <button class="btn" type="submit"> Predict Another! </button>
+            <div><p>
+                {% for title in res %} 
+                {{ title }}<br>
+                {% endfor %}
+            </b></p></div>
+            <div>
+                <img src="\static\img\local_map.png" alt="google map">
+            </div>
+        </form>
+</body>
+
+{% else %}
+
+<body background = "/static/img/sadbackground.GIF">
+        <form method="POST">
+        <output>
+            <button class="btn" type="submit"> Predict Another! </button>
+            <div><p>
+                {% for title in res %} 
+                {{ title }}<br>
+                {% endfor %}
+            </b></p></div>
+            <div>
+                <img src="\static\img\local_map.png" alt="google map">
+            </div>
+        </form>
+</body>
+
+{% endif %}
     
 {% endblock %}
