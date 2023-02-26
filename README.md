@@ -1,4 +1,4 @@
-# Earthquake-Detection
+# TECHTonic Tracer
 ## Overview
 TECHTonic Tracer is an earthquake predictor (website) that uses machine learning meant to warn people about future earthquakes before they happen.
 
