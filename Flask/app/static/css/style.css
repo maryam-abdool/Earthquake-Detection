@@ -13,6 +13,25 @@ body {
   background-position-y: 40px;
 }
 
+.gif_container1 {
+  background: url("/static/img/goodbackground.GIF") center no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  min-width: 100%;
+}
+
+.gif_container2 {
+  background: url("/static/img/sadbackground.GIF") center no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  min-width: 100%;
+}
+
+
 .background {
   background-size: cover;
   background-repeat: no-repeat;
@@ -101,6 +120,17 @@ body {
   flex-direction: column;
   bottom: 0;
   color: white;
+  align-items: center;
+  font-size: 22px;
+  text-decoration-color: #000;
+}
+
+.return{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  color: black;
   align-items: center;
   font-size: 22px;
   text-decoration-color: #000;
