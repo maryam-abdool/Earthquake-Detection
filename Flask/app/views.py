@@ -91,6 +91,7 @@ def my_form_post():
     if os.path.isfile("app/static/img/local_map.png"):
         os.remove("app/static/img/local_map.png")   # Opt.: os.system("rm "+strFile)
     plt.savefig("app/static/img/local_map.png", transparent=True)
+    plt.close()
     return redirect(url_for("show", output="&&".join(output))) 
 
 @app.route("/result/?<string:output>", methods=["GET"])
