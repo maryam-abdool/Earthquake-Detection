@@ -1,6 +1,6 @@
 import pandas as pd
 from flaml import AutoML
-from flaml.ml import sklearn_metric_loss_score
+from flaml.automl.ml import sklearn_metric_loss_score
 import dabl
 import pickle
 from sklearn.model_selection import train_test_split
@@ -21,7 +21,9 @@ X = dataset[["time", "latitude", "longitude"]]
 X["time"] = X["time"].map(timeStrToTimestamp)
 y = dataset["mag"]
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+idx_train, idx_test = train_test_split(X.index, test_size=0.2, stratify=y, random_state=42)
+X_train, X_test, y_train, y_test = X.loc[idx_train, :], X.loc[idx_test, :], y.loc[idx_train], y.loc[idx_test]
 
 autoML = AutoML()
 
