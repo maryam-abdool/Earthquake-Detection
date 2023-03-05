@@ -6,7 +6,7 @@ https://youtu.be/xFdrmsKcvfs
 Update: we won one of the hacks at DevFest 2023! :3
 
 ## Overview
-TECHTonic Tracer is a website that leverages machine learning to predict earthquakes before they occur.
+Inspired by the tragic earthquakes that have struck Turkey, TECHTonic Tracer is a website that leverages machine learning to predict earthquakes before they occur.
 
 ## Quick Start
 You will firstly need to install the dependencies with
