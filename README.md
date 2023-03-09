@@ -1,9 +1,13 @@
 # TECHTonic Tracer
 
+##DefFest Winner
+
+Update: winning hack at DevFest 2023! :3
+https://devfest23.devpost.com/submissions/search?utf8=✓&terms=TECHtonic+tracer&sort=recent
+
 ## Working Live Demo
 https://youtu.be/xFdrmsKcvfs
 
-Update: we won one of the hacks at DevFest 2023! :3
 
 ## Overview
 Inspired by the tragic earthquakes that have struck Turkey, TECHTonic Tracer is a website that leverages machine learning to predict earthquakes before they occur.
