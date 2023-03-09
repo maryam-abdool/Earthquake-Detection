@@ -2,7 +2,7 @@
 
 ## Update
 
-Our hack won at DevFest 2023! :3
+DevFest 2023 winning hack! :3
 
 https://devfest23.devpost.com/submissions/search?utf8=✓&terms=TECHtonic+tracer&sort=recent
 
