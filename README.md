@@ -4,10 +4,10 @@
 
 DevFest 2023 winning hack! :3
 
-https://devfest23.devpost.com/submissions/search?utf8=✓&terms=TECHtonic+tracer&sort=recent
+[Reference](https://devfest23.devpost.com/submissions/search?utf8=✓&terms=TECHtonic+tracer&sort=recent)
 
 ## Working Live Demo
-https://youtu.be/xFdrmsKcvfs
+[Video](https://youtu.be/xFdrmsKcvfs)
 
 
 ## Overview
@@ -54,4 +54,7 @@ Wanna see if the tectonic plates are doing alright? TECHtonic tracer has got you
 ## UI
 All parts of our UI are designed and handdrawn by our awesome front end developer Emily! See the design plan and assets in figma below. 
 ![figma image](Archive/figma.png)
+
+## Possible Next Steps
+[ ] Deploy on public URL with Gunicorn, Nginx and Docker!
 
